@@ -26,6 +26,9 @@ function mostrarCategoria(categoria) {
   areaProdutos.innerHTML = '';
 
   produtosPorCategoria[categoria].forEach((produto, index) => {
+    const existente = carrinho.find(item => item.nome === produto.nome);
+    const quantidade = existente ? existente.quantidade : 0;
+
     const div = document.createElement('div');
     div.classList.add('produto');
     div.innerHTML = `
@@ -34,13 +37,14 @@ function mostrarCategoria(categoria) {
       <p>R$ ${produto.preco.toFixed(2)}</p>
       <div class="quantidade">
         <button onclick="alterarQuantidade('${categoria}', ${index}, -1)">-</button>
-        <span id="qtd-${categoria}-${index}">0</span>
+        <span id="qtd-${categoria}-${index}">${quantidade}</span>
         <button onclick="alterarQuantidade('${categoria}', ${index}, 1)">+</button>
       </div>
     `;
     areaProdutos.appendChild(div);
   });
 }
+
 
 
 function alterarQuantidade(categoria, index, delta) {
@@ -96,45 +100,18 @@ function irParaCupom() {
   window.location.href = "../cupom/cupom.html";
 }
 
-// ✅ CORREÇÃO AQUI: Gera carrinho ao carregar a página
 window.onload = function () {
-  // Limpa o carrinho quando a página for carregada
-  localStorage.removeItem('carrinho');
-  localStorage.removeItem('total');
-
-  // Recarrega o carrinho (agora vazio) e os itens
-  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-  
-
-  // Atualiza a exibição do carrinho na tela
-  atualizarCarrinho();
-
-  // Atualiza o valor total
-  const totalCarrinho = localStorage.getItem('total');
-  if (totalCarrinho) {
-    document.getElementById('total').textContent = parseFloat(totalCarrinho).toFixed(2);
-  }
-};
-
-window.onload = function () {
-  // Verifica se já há carrinho armazenado e carrega os dados
   const carrinhoArmazenado = localStorage.getItem("carrinho");
   if (carrinhoArmazenado) {
     carrinho = JSON.parse(carrinhoArmazenado);
-  } else {
-    carrinho = [];
   }
 
-  // Atualiza a exibição do carrinho
   atualizarCarrinho();
-
-  // Atualiza o valor total
+  
   const totalCarrinho = localStorage.getItem('total');
   if (totalCarrinho) {
     document.getElementById('total').textContent = parseFloat(totalCarrinho).toFixed(2);
   }
-};
 
-//window.onload= function(){
-  //mostrarCategoria("lanches");
- //}
+  mostrarCategoria("lanches"); // ou a categoria padrão que quiser mostrar ao abrir
+};
