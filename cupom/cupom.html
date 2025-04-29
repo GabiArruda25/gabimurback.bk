@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cupom</title>
+  <link rel="stylesheet" href="../cupom/cupom.css">
+</head>
+<body>
+  <div class="cupom-container">
+    <h1 class="titulo">CUPOM</h1>
+
+    <div class="search-area">
+      <input type="text" id="inputCupom" placeholder="Digite seu cupom...">
+      <button onclick="verificarCupom()">
+        🔍
+      </button>
+    </div>
+
+    <div id="mensagem" class="mensagem"></div>
+
+    <div class="botoes">
+      <button class="voltar" onclick="voltar()">Voltar</button>
+      <button class="pagar" onclick="pagar()">pagar</button>
+    </div>
+  </div>
+
+  <script src="../cupom/cupom.js"></script>
+</body>
+</html>

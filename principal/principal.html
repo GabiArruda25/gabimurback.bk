@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autoatendimento</title>
+  <link rel="stylesheet" href="../principal/principal.css" />
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Seção de Categorias -->
+    <div class="categorias">
+      <button onclick="mostrarCategoria('lanches')">Lanches</button>
+      <button onclick="mostrarCategoria('snacks')">Snacks</button>
+    </div>
+
+    <!-- Seção de Produtos -->
+    <div class="produtos" id="produtos">
+      <!-- Quadrados com produtos vão aqui -->
+    </div>
+
+    <!-- Seção do Carrinho -->
+    <div class="carrinho" id="carrinho">
+      <h2>Carrinho</h2>
+      <div id="itensCarrinho"></div>
+      <div id="lista-carrinho"></div>
+      <div class="footer">
+        <strong>Total: R$ <span id="total">0.00</span></strong>
+        <button id="btn-proximo" onclick="irParaCupom()">Próximo</button>
+      </div>
+      
+      
+    </div>
+  </div>
+
+  <script src="../principal/principal.js"></script>
+</body>
+</html> 
