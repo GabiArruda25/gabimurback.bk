@@ -20,17 +20,22 @@ const produtosPorCategoria = {
 };
 
 let carrinho = [];
-
+// Função responsável por exibir os produtos de uma categoria específica na interface
 function mostrarCategoria(categoria) {
+  // Seleciona a área onde os produtos serão exibidos
   const areaProdutos = document.getElementById('produtos');
+  // Limpa o conteúdo atual da área de produtos
   areaProdutos.innerHTML = '';
-
+// Percorre todos os produtos da categoria selecionada
   produtosPorCategoria[categoria].forEach((produto, index) => {
+    // Verifica se o produto já está no carrinho
     const existente = carrinho.find(item => item.nome === produto.nome);
+     // Define a quantidade com base no carrinho (ou 0 se ainda não foi adicionado)
     const quantidade = existente ? existente.quantidade : 0;
-
+   //Cria a div que irá representar visualmente o produto
     const div = document.createElement('div');
     div.classList.add('produto');
+    // Define o conteúdo HTML do produto (imagem, nome, preço e controle de quantidade)
     div.innerHTML = `
       <img src="${produto.img}" alt="${produto.nome}">
       <h4>${produto.nome}</h4>
@@ -41,32 +46,50 @@ function mostrarCategoria(categoria) {
         <button onclick="alterarQuantidade('${categoria}', ${index}, 1)">+</button>
       </div>
     `;
+     // Adiciona a div do produto à área de exibição
     areaProdutos.appendChild(div);
   });
 }
 
 
-
+// Função responsável por alterar a quantidade de um produto no carrinho
 function alterarQuantidade(categoria, index, delta) {
+  //Cria um identificador único para o produto com base na categoria e índice
   const id = `${categoria}-${index}`;
+
+  // Seleciona o elemento HTML que exibe a quantidade do produto
   const span = document.getElementById(`qtd-${id}`);
+
+  // Calcula a nova quantidade, somando o delta (pode ser +1 ou -1
   let qtd = parseInt(span.textContent) + delta;
+
+  // Se a quantidade for menor que 0, define como 0 (não pode haver quantidade negativa)
   if (qtd < 0) qtd = 0;
+
+   // Atualiza o texto do elemento span com a nova quantidade
   span.textContent = qtd;
 
+  // Obtém o produto correspondente à categoria e índice
   const produto = produtosPorCategoria[categoria][index];
+
+  // Verifica se o produto já existe no carrinho
   const existente = carrinho.find(item => item.nome === produto.nome);
 
+  // Se o produto já está no carrinho
   if (existente) {
+     // Se a quantidade for 0, remove o produto do carrinho
     if (qtd === 0) {
       carrinho = carrinho.filter(item => item.nome !== produto.nome);
     } else {
+      // Se a quantidade for maior que 0, atualiza a quantidade no carrinho
       existente.quantidade = qtd;
     }
+     // Se o produto não está no carrinho e a quantidade é maior que 0
   } else if (qtd > 0) {
+    // Adiciona o produto ao carrinho com a nova quantidade
     carrinho.push({ ...produto, quantidade: qtd });
   }
-
+// Atualiza a exibição do carrinho (total, produtos, etc.)
   atualizarCarrinho();
 }
 
