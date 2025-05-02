@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Autoatendimento</title>
+
+  <!-- Importa o CSS com os estilos da página principal -->
   <link rel="stylesheet" href="../principal/principal.css" />
 </head>
+
 <body>
-  <div class="container">
-    
-    <!-- Seção de Categorias -->
-    <div class="categorias">
+
+  <!-- Conteúdo principal da aplicação -->
+  <main class="container">
+
+    <!-- Seção com os botões de categorias (lanches e snacks) -->
+    <nav class="categorias">
+      <!-- Ao clicar, exibe os produtos da categoria escolhida -->
       <button onclick="mostrarCategoria('lanches')">Lanches</button>
       <button onclick="mostrarCategoria('snacks')">Snacks</button>
-    </div>
+    </nav>
 
-    <!-- Seção de Produtos -->
-    <div class="produtos" id="produtos">
-      <!-- Quadrados com produtos vão aqui -->
-    </div>
+    <!-- Área onde os produtos da categoria selecionada serão exibidos -->
+    <section class="produtos" id="produtos">
+      <!-- Os quadrados com os produtos (imagem, nome, preço, quantidade) serão adicionados dinamicamente aqui pelo JavaScript -->
+    </section>
 
-    <!-- Seção do Carrinho -->
-    <div class="carrinho" id="carrinho">
+    <!-- Área lateral do carrinho de compras -->
+    <aside class="carrinho" id="carrinho">
       <h2>Carrinho</h2>
-      <div id="itensCarrinho"></div>
-      <div id="lista-carrinho"></div>
-      <div class="footer">
-        <strong>Total: R$ <span id="total">0.00</span></strong>
-        <button id="btn-proximo" onclick="irParaCupom()">Próximo</button>
-      </div>
-      
-      
-    </div>
-  </div>
 
+      <!-- Aqui serão exibidos os itens adicionados ao carrinho -->
+      <div id="itensCarrinho"></div>
+
+      <!-- Lista detalhada dos produtos no carrinho -->
+      <div id="lista-carrinho"></div>
+
+      <!-- Rodapé do carrinho com total e botão para avançar -->
+      <footer class="footer">
+        <!-- Exibe o valor total da compra -->
+        <strong>Total: R$ <span id="total">0.00</span></strong>
+
+        <!-- Botão que leva para a tela de cupom -->
+        <button id="btn-proximo" onclick="irParaCupom()">Próximo</button>
+      </footer>
+    </aside>
+
+  </main>
+
+  <!-- Importa o JavaScript que controla a lógica da página -->
   <script src="../principal/principal.js"></script>
+
 </body>
-</html> 
+
+</html>
