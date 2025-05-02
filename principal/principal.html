@@ -13,6 +13,7 @@
 <body>
 
   <!-- Conteúdo principal da aplicação -->
+   <!-- tag <main> representa o conteúdo principal da página, sendo uma área central que contém o conteúdo mais importante da página.-->
   <main class="container">
 
     <!-- Seção com os botões de categorias (lanches e snacks) -->
@@ -20,14 +21,17 @@
       <!-- Ao clicar, exibe os produtos da categoria escolhida -->
       <button onclick="mostrarCategoria('lanches')">Lanches</button>
       <button onclick="mostrarCategoria('snacks')">Snacks</button>
+      <!-- A tag <nav> define uma seção de navegação na página. Ela é usada para agrupar links ou botões que permitem aos usuários navegar entre diferentes seções da página. -->
     </nav>
 
     <!-- Área onde os produtos da categoria selecionada serão exibidos -->
+     <!--A tag <section> é usada para agrupar conteúdo relacionado em uma seção distinta da página.-->
     <section class="produtos" id="produtos">
       <!-- Os quadrados com os produtos (imagem, nome, preço, quantidade) serão adicionados dinamicamente aqui pelo JavaScript -->
     </section>
 
     <!-- Área lateral do carrinho de compras -->
+     <!--A tag <aside> é usada para representar conteúdo relacionado, mas não essencial para o conteúdo principal. Neste caso, é a área lateral do carrinho de compras-->
     <aside class="carrinho" id="carrinho">
       <h2>Carrinho</h2>
 
@@ -38,6 +42,7 @@
       <div id="lista-carrinho"></div>
 
       <!-- Rodapé do carrinho com total e botão para avançar -->
+       <!--A tag <footer> define o rodapé da página ou de uma seção específica. Neste caso, ele contém o total da compra e o botão para avançar para a próxima etapa-->
       <footer class="footer">
         <!-- Exibe o valor total da compra -->
         <strong>Total: R$ <span id="total">0.00</span></strong>
