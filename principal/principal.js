@@ -16,6 +16,24 @@ const produtosPorCategoria = {
     { nome: 'Batata Média', preco: 18.75, img: '../img/BatataMedia.jpg' },
     { nome: 'Bk Chicken', preco: 19.00, img: '../img/BkChicken.jpg' },
     { nome: 'Balde de Batata Frita', preco: 33.75, img: '../img/BaldedeBatata.jpg' }
+  ],
+   bebidas: [
+    { nome: 'Coca-Cola Lata', preco: 5.00, img: '../img/cocaNormal.jpeg' },
+    { nome: 'Coca-Cola Zero Lata', preco: 5.00, img: '../img/cocaZero.jpeg' },
+    { nome: 'Suco de Laranja', preco: 7.00, img: '../img/pratsLaranja.jpeg' },
+    { nome: 'Suco de Uva', preco: 7.00, img: '../img/pratsUva.jpeg' },
+    { nome: 'Guarana Lata', preco: 5.00, img: '../img/guaranaNormal.jpeg' },
+    { nome: 'Guarana Zero Lata', preco: 5.00, img: '../img/guaranaZero.jpg' },
+    { nome: 'Agua', preco: 3.00, img: '../img/agua.webp' },
+   
+  ],
+  sorvetes: [
+    { nome: 'Balde Ovomantine', preco: 15.00, img: '../img/Balde_ovomaltine.png' },
+    { nome: 'Balde Brownie', preco: 15.00, img: '../img/Balde-Brownie.png' },
+    { nome: 'Balde de Doce de Leite', preco: 15.00, img: '../img/baldeDeDoceDeLEITE.png' },
+    { nome: 'Balde de Diamante Negro', preco: 15.00, img: '../img/baldeSorveteDiamanteNegro.jpg' },
+    { nome: 'Casquinha Mista', preco: 15.00, img: '../img/Casquinha_mista.png' },
+    { nome: 'Casquinha De Baunilha', preco: 15.00, img: '../img/Casquinha_baunilha.png' },
   ]
 };
 

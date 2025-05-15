@@ -11,6 +11,67 @@
 </head>
 
 <body>
+<button id="btnLogin">Login</button>
+
+<!-- Modal Login -->
+<div id="modalLogin" style="display:none; position:fixed; top:0; left:0; 
+  width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:20px; border-radius:5px; width:300px;">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email" required style="width: 100%; margin-bottom: 10px;">
+    <input type="password" id="senha" placeholder="Senha" required style="width: 100%; margin-bottom: 10px;">
+    <button id="loginSubmit">Entrar</button>
+    <button id="fecharModal" style="margin-left: 10px;">Cancelar</button>
+    <p id="msgErro" style="color:red; margin-top:10px;"></p>
+  </div>
+</div>
+
+<script>
+// Usuários cadastrados para teste
+const usuariosCadastrados = [
+  { email: 'gerente@bk.com', senha: '123456', tipo: 'gerente' },
+  { email: 'cliente@bk.com', senha: '123456', tipo: 'cliente' }
+];
+
+const btnLogin = document.getElementById('btnLogin');
+const modalLogin = document.getElementById('modalLogin');
+const fecharModal = document.getElementById('fecharModal');
+const loginSubmit = document.getElementById('loginSubmit');
+const msgErro = document.getElementById('msgErro');
+
+btnLogin.addEventListener('click', () => {
+  msgErro.textContent = '';
+  modalLogin.style.display = 'flex';
+});
+
+fecharModal.addEventListener('click', () => {
+  modalLogin.style.display = 'none';
+});
+
+loginSubmit.addEventListener('click', () => {
+  const email = document.getElementById('email').value.trim();
+  const senha = document.getElementById('senha').value.trim();
+
+  const usuario = usuariosCadastrados.find(u => u.email === email && u.senha === senha);
+
+  if (!usuario) {
+    msgErro.textContent = 'Email ou senha incorretos.';
+    return;
+  }
+
+  // Salvar usuário logado no localStorage
+  localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+
+  modalLogin.style.display = 'none';
+
+  if (usuario.tipo === 'gerente') {
+    window.location.href = 'gerente/gerente.html';
+  } else {
+    alert('Bem-vindo, usuário!');
+    // Continua na página atual
+  }
+});
+</script>
 
   <!-- Conteúdo principal da aplicação -->
    <!-- tag <main> representa o conteúdo principal da página, sendo uma área central que contém o conteúdo mais importante da página.-->
@@ -21,6 +82,8 @@
       <!-- Ao clicar, exibe os produtos da categoria escolhida -->
       <button onclick="mostrarCategoria('lanches')">Lanches</button>
       <button onclick="mostrarCategoria('snacks')">Snacks</button>
+      <button onclick="mostrarCategoria('bebidas')">Bebidas</button>
+      <button onclick="mostrarCategoria('sorvetes')">Sorvetes</button>
       <!-- A tag <nav> define uma seção de navegação na página. Ela é usada para agrupar links ou botões que permitem aos usuários navegar entre diferentes seções da página. -->
     </nav>
 

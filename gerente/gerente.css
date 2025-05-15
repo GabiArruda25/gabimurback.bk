@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+input, button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #388e3c;
+}
+
+#lista-produtos {
+  margin-top: 20px;
+}
+
+.card {
+  background: #e3f2fd;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  position: relative;
+}
+
+.card img {
+  max-width: 100px;
+  border-radius: 4px;
+}
+
+.card-actions {
+  margin-top: 10px;
+}
+
+.card-actions button {
+  width: auto;
+  margin-right: 10px;
+}

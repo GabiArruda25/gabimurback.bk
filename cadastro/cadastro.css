@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+input, select, button {
+  margin: 5px 0;
+  padding: 8px;
+}
+.erro {
+  color: red;
+  margin-top: 10px;
+}

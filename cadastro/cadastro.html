@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Cadastro - Burger King</title>
+<link rel="stylesheet" href="cadastro.css" />
+</head>
+<body>
+  <h1>Cadastro</h1>
+  <form id="formCadastro">
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="senha" placeholder="Senha (mín 6 caracteres)" required />
+    <select id="tipo">
+      <option value="cliente" selected>Cliente</option>
+      <option value="gerente">Gerente</option>
+    </select>
+    <button type="submit">Cadastrar</button>
+  </form>
+  <p id="msgErro" class="erro"></p>
+  <p><a href="../login/login.html">Voltar ao login</a></p>
+<script src="cadastro.js"></script>
+</body>
+</html>
